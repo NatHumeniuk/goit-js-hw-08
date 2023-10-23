@@ -24,9 +24,12 @@ function updateMessage(event) {
   newMessage[event.target.name] = event.target.value;
   localStorage.setItem('feedback-form-state', JSON.stringify(newMessage));
 }
+
 function cleanForm(event) {
   event.preventDefault();
-  console.log(`Email: ${inputEmail.value}, feedback: ${textareaMessage.value}`);
+  newMessage.email = inputEmail.value;
+  newMessage.message = textareaMessage.value;
+  console.log(newMessage);
   localStorage.removeItem('feedback-form-state');
   inputEmail.value = '';
   textareaMessage.value = '';
